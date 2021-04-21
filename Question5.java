@@ -26,7 +26,34 @@ public class Question5
      * Hint: Use a loop to get input. Use another 2 loops to find the mode
      */
      
+    // User input for number of integers
     Scanner in = new Scanner(System.in);
-    
+    int n = in.nextInt();
+    int[] array = new int[n];
+
+    for (int i=0; i < n; i++) {
+      int num = in.nextInt();
+      array[i] = num;
+    }
+
+    // Find mode
+    int maxNumber = -1;
+    int maxAppearances = -1;
+
+    for(int j=0; j < array.length; j++) {
+      int count = 0;
+
+      for(int k=0; k < array.length; k++) {
+        if (array[j] == array[k])
+          count++;
+      }
+
+      if (count > maxAppearances) {
+        maxNumber = array[j];
+        maxAppearances = count;
+      }
+    }
+
+    System.out.println(maxNumber); // Mode of array
   }
 }
